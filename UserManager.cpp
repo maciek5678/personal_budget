@@ -13,19 +13,19 @@ void UserManager::userRegistration()
 }
 int UserManager::userLoggingIn()
 {
- string login;
-        cout<<"Podaj login: ";
+    string login;
+    cout<<"Podaj login: ";
     cin>>login;
- for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++)
+    for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++)
     {
 
 
-     if(itr->getLogin()==login)
-{
+        if(itr->getLogin()==login)
+        {
 
-        string password;
+            string password;
 
-for (int tryCounter = 3; tryCounter > 0; tryCounter--)
+            for (int tryCounter = 3; tryCounter > 0; tryCounter--)
             {
                 cout << "Podaj haslo. Pozostalo prob: " << tryCounter << ": ";
                 cin>>password;
@@ -38,14 +38,14 @@ for (int tryCounter = 3; tryCounter > 0; tryCounter--)
 
                     return loggedUserID;
                 }
-                }
-
-                break;
             }
+
+            break;
+        }
     }
-        cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
-return 0;
+    return 0;
 }
 bool UserManager::doesLoginExist( string login)
 {
@@ -62,20 +62,20 @@ bool UserManager::doesLoginExist( string login)
 }
 void UserManager::userLoggingOut()
 {
-  loggedUserID=0;
+    loggedUserID=0;
 }
 void UserManager::userChangePassword()
 {
- string password;
- cout<<"Podaj nowe haslo: ";
- cin>>password;
- for(int i=0; i<=users.size(); i++)
-    if (users[i].getUserID()==loggedUserID)
-    users[i].setPassword(password);
-        usersFile.changePassword(loggedUserID,password);
+    string password;
+    cout<<"Podaj nowe haslo: ";
+    cin>>password;
+    for(int i=0; i<=users.size(); i++)
+        if (users[i].getUserID()==loggedUserID)
+            users[i].setPassword(password);
+    usersFile.changePassword(loggedUserID,password);
 
 
-        }
+}
 void UserManager::uploadUsersFromFile()
 {
     usersFile.uploadUsersFromFile();
@@ -88,9 +88,9 @@ int UserManager::getLoggedUserID()
 User UserManager::getData()
 {
     User user;
-     if(users.empty())
+    if(users.empty())
         user.setUserID(1);
-        else
+    else
         user.setUserID(users.back().getUserID()+1);
     string name;
     cout<<"Podaj imie: ";
@@ -99,15 +99,16 @@ User UserManager::getData()
     string surname;
     cout<<"Podaj nazwisko: ";
     cin>>surname;
-user.setSurname(surname);
+    user.setSurname(surname);
 
     string login;
-do{
-    vector <User>::iterator itr = users.begin();
+    do
+    {
+        vector <User>::iterator itr = users.begin();
         cout << "Podaj login: ";
         cin>>login;
         user.setLogin(login);
-        }
+    }
     while (doesLoginExist(user.getLogin()) == true);
     string password;
     cout<<"Podaj haslo: ";

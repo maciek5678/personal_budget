@@ -6,12 +6,15 @@ void IncomesFile::addIncome(Income income)
     {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
         xml.AddElem("Incomes");
+        lastID=0;
     }
     xml.FindElem();
     xml.IntoElem();
     xml.AddElem("Income");
     xml.IntoElem();
-    xml.AddElem("date", income.getDate());
+    lastID+=1;
+    xml.AddElem("ID", lastID);
+    xml.AddElem("date", DataManager::convertToFile(income.getDate()));
     xml.AddElem("describe", income.getDescribe());
     xml.AddElem("userID", income.getUserID());
     ostringstream strs;
@@ -33,8 +36,11 @@ vector <Income> IncomesFile::uploadIncomesFromFile(int loggedUserID)
             while (xml.FindElem("Income"))
             {
                 xml.IntoElem();
+                xml.FindElem("ID");
+                income.setID(atoi(MCD_2PCSZ(xml.GetData())));
+                lastID=income.getID();
                 xml.FindElem("date");
-                income.setDate(atoi(MCD_2PCSZ(xml.GetData())));
+                income.setDate(DataManager::convertToVector((xml.GetData())));
 
                 xml.FindElem("describe");
                 income.setDescribe(xml.GetData());

@@ -11,16 +11,17 @@ class UserManager
     UsersFile usersFile;
 public:
     UserManager(string usersFileName)
-    :usersFile(usersFileName){
-    loggedUserID=0;
-    users=usersFile.uploadUsersFromFile();
+        :usersFile(usersFileName)
+    {
+        loggedUserID=0;
+        users=usersFile.uploadUsersFromFile();
     }
     void userRegistration();
-        int userLoggingIn();
-        bool doesLoginExist( string login);
-        void userLoggingOut();
-        void userChangePassword();
-       void uploadUsersFromFile();
-        int getLoggedUserID();
-        User getData();
+    int userLoggingIn();
+    bool doesLoginExist( string login);
+    void userLoggingOut();
+    void userChangePassword();
+    void uploadUsersFromFile();
+    int getLoggedUserID();
+    User getData();
 };

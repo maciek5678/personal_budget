@@ -15,7 +15,7 @@ void PersonalBudget::userLoggingOut()
 {
     userManager.userLoggingOut();
     delete incomeAndExpenseManager;
-   incomeAndExpenseManager=NULL;
+    incomeAndExpenseManager=NULL;
 }
 void PersonalBudget::userChangePassword()
 {
@@ -49,7 +49,7 @@ bool PersonalBudget::isUserLoggedIn()
 {
     if(userManager.getLoggedUserID()!=0)
         return true;
-        else
+    else
         return false;
 }
 char PersonalBudget::chooseMainMenuOption()

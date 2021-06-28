@@ -8,22 +8,23 @@
 #include "ExpensesFile.h"
 #include "DataManager.h"
 using namespace std;
-class IncomeAndExpenseManager{
-int loggedUserID;
-vector <Income> incomes;
-vector <Expence> expences;
-IncomesFile incomesFile;
-ExpensesFile expensesFile;
+class IncomeAndExpenseManager
+{
+    int loggedUserID;
+    vector <Income> incomes;
+    vector <Expence> expences;
+    IncomesFile incomesFile;
+    ExpensesFile expensesFile;
 
 public:
     IncomeAndExpenseManager(string incomesFileName,string expensesFileName,int logUserID)
-    : incomesFile(incomesFileName),expensesFile(expensesFileName), loggedUserID(logUserID)
-{
+        : incomesFile(incomesFileName),expensesFile(expensesFileName), loggedUserID(logUserID)
+    {
 
-incomes=incomesFile.uploadIncomesFromFile(loggedUserID);
-expences=expensesFile.uploadExpensesFromFile(loggedUserID);
+        incomes=incomesFile.uploadIncomesFromFile(loggedUserID);
+        expences=expensesFile.uploadExpensesFromFile(loggedUserID);
 
-}
+    }
 
 
     void addIncome();
@@ -32,15 +33,15 @@ expences=expensesFile.uploadExpensesFromFile(loggedUserID);
     void sortVectorExpense();
     void showCurrentMonthBalance();
     void showPreviousMonthBalance();
-void showAll();
-void uploadIncomesFromFile();
-void uploadExpensesFromFile();
-void showSelectedPeriodBalance();
-bool todayIncome();
-bool todayExpense();
-string setDescribe();
-double setAmount();
-void showIncomeDetails(Income income);
-void showExpenseDetails(Expence expense);
+    void showAll();
+    void uploadIncomesFromFile();
+    void uploadExpensesFromFile();
+    void showSelectedPeriodBalance();
+    bool todayIncome();
+    bool todayExpense();
+    string setDescribe();
+    double setAmount();
+    void showIncomeDetails(Income income);
+    void showExpenseDetails(Expence expense);
 
 };

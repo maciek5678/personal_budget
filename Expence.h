@@ -7,4 +7,4 @@ class Expence: public Finance
 {
 
 };
-#endif;
+#endif

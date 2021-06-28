@@ -4,9 +4,9 @@ using namespace std;
 
 int main()
 {
-PersonalBudget personalBudget("users.xml", "incomes.xml", "expences.xml");
+    PersonalBudget personalBudget("users.xml", "incomes.xml", "expences.xml");
 
-        while (true)
+    while (true)
     {
         if (personalBudget.isUserLoggedIn()==false)
         {
@@ -30,32 +30,33 @@ PersonalBudget personalBudget("users.xml", "incomes.xml", "expences.xml");
                 break;
             }
         }
-        else{
-                char choose;
-                    choose = personalBudget.chooseUserMenuOption();
+        else
+        {
+            char choose;
+            choose = personalBudget.chooseUserMenuOption();
 
             switch (choose)
             {
             case '1':
-        personalBudget.addIncome();
+                personalBudget.addIncome();
                 break;
             case '2':
-        personalBudget.addExpense();
+                personalBudget.addExpense();
                 break;
             case '3':
-        personalBudget.showCurrentMonthBalance();
+                personalBudget.showCurrentMonthBalance();
                 break;
             case '4':
-        personalBudget.showPreviousMonthBalance();
+                personalBudget.showPreviousMonthBalance();
                 break;
             case '5':
-        personalBudget.showSelectedPeriodBalance();
+                personalBudget.showSelectedPeriodBalance();
                 break;
             case '6':
-        personalBudget.userChangePassword();
+                personalBudget.userChangePassword();
                 break;
             case '7':
-    personalBudget.userLoggingOut();
+                personalBudget.userLoggingOut();
                 break;
 
             }

@@ -4,7 +4,7 @@ void UsersFile::addUser(User user)
 {
     if(!doesFileExist())
     {
-                xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
+        xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
         xml.AddElem("Users");
     }
     xml.FindElem();
@@ -23,33 +23,35 @@ vector <User> UsersFile::uploadUsersFromFile()
 {
     vector <User> users;
     User user;
-  if(doesFileExist())
+    if(doesFileExist())
     {
-   while ( xml.FindElem("Users") )
-   {xml.IntoElem();
-     while (xml.FindElem("User")){
-      xml.IntoElem();
-        xml.FindElem("UserId");
-user.setUserID(atoi(MCD_2PCSZ(xml.GetData())));
+        while ( xml.FindElem("Users") )
+        {
+            xml.IntoElem();
+            while (xml.FindElem("User"))
+            {
+                xml.IntoElem();
+                xml.FindElem("UserId");
+                user.setUserID(atoi(MCD_2PCSZ(xml.GetData())));
 
-      xml.FindElem("Name");
-     user.setName(xml.GetData());
+                xml.FindElem("Name");
+                user.setName(xml.GetData());
 
-      xml.FindElem("Surname");
-     user.setSurname(xml.GetData());
+                xml.FindElem("Surname");
+                user.setSurname(xml.GetData());
 
-      xml.FindElem("Login");
+                xml.FindElem("Login");
 
-      user.setLogin(xml.GetData());
+                user.setLogin(xml.GetData());
 
-      xml.FindElem("Password");
+                xml.FindElem("Password");
 
-      user.setPassword(xml.GetData());
+                user.setPassword(xml.GetData());
 
-      users.push_back(user);
-      xml.OutOfElem();
-     }
-   }
+                users.push_back(user);
+                xml.OutOfElem();
+            }
+        }
     }
     return users;
 }
@@ -69,10 +71,10 @@ void UsersFile::changePassword(int loggedUserID, string password)
                 xml.IntoElem();
                 xml.FindElem("UserId");
                 int IdZPliku=atoi(MCD_2PCSZ(xml.GetData()));
-if(IdZPliku!=loggedUserID)
-{
-  xml.OutOfElem();
-}
+                if(IdZPliku!=loggedUserID)
+                {
+                    xml.OutOfElem();
+                }
                 if(IdZPliku==loggedUserID)
                 {
                     xml.FindElem("Password");

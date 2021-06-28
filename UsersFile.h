@@ -8,14 +8,15 @@
 #include "User.h"
 #include "Markup.h"
 using namespace std;
-class UsersFile: public XMLFile{
-int lastUserID;
+class UsersFile: public XMLFile
+{
+    int lastID;
 public:
     UsersFile(string usersFileName)
-    : XMLFile(usersFileName){};
-void addUser(User user);
-vector <User> uploadUsersFromFile();
-void changePassword(int loggedUserID, string password);
+        : XMLFile(usersFileName) {};
+    void addUser(User user);
+    vector <User> uploadUsersFromFile();
+    void changePassword(int loggedUserID, string password);
 };
 #endif
 

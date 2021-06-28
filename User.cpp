@@ -1,37 +1,41 @@
 #include <iostream>
 #include "User.h"
 
- void User::setUserID(int newID)
- {
-     userID=newID;
- }
-    void User::setName(string newName)
-    {
-name=newName;
-    }
-void User::setSurname(string newSurname){
-surname=newSurname;
+void User::setUserID(int newID)
+{
+    userID=newID;
+}
+void User::setName(string newName)
+{
+    name=newName;
+}
+void User::setSurname(string newSurname)
+{
+    surname=newSurname;
 }
 void User::setLogin(string newLogin)
 {
-login=newLogin;
+    login=newLogin;
 }
-void User::setPassword(string newPassword){
-password=newPassword;
+void User::setPassword(string newPassword)
+{
+    password=newPassword;
 }
 string User::getName()
 {
-return name;
+    return name;
 }
-string User::getSurname(){
-return surname;
+string User::getSurname()
+{
+    return surname;
 }
 string User::getLogin()
 {
-return login;
+    return login;
 }
-string User::getPassword(){
-return password;
+string User::getPassword()
+{
+    return password;
 }
 int User:: getUserID()
 {
