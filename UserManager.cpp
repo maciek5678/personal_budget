@@ -4,12 +4,8 @@ void UserManager::userRegistration()
 {
     User user;
     user=getData();
-
-
-
     users.push_back(user);
     usersFile.addUser(user);
-
 }
 int UserManager::userLoggingIn()
 {
@@ -18,11 +14,8 @@ int UserManager::userLoggingIn()
     cin>>login;
     for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++)
     {
-
-
         if(itr->getLogin()==login)
         {
-
             string password;
 
             for (int tryCounter = 3; tryCounter > 0; tryCounter--)
@@ -35,11 +28,9 @@ int UserManager::userLoggingIn()
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
                     loggedUserID=itr -> getUserID();
-
                     return loggedUserID;
                 }
             }
-
             break;
         }
     }
@@ -73,8 +64,6 @@ void UserManager::userChangePassword()
         if (users[i].getUserID()==loggedUserID)
             users[i].setPassword(password);
     usersFile.changePassword(loggedUserID,password);
-
-
 }
 void UserManager::uploadUsersFromFile()
 {
@@ -82,7 +71,6 @@ void UserManager::uploadUsersFromFile()
 }
 int UserManager::getLoggedUserID()
 {
-
     return loggedUserID;
 }
 User UserManager::getData()
@@ -100,7 +88,6 @@ User UserManager::getData()
     cout<<"Podaj nazwisko: ";
     cin>>surname;
     user.setSurname(surname);
-
     string login;
     do
     {

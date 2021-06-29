@@ -10,7 +10,6 @@ class Finance
     int userID;
     double amount;
     int date;
-
 public:
     void setDate(int newDate);
     void setDescribe(string newDescribe);
@@ -22,10 +21,5 @@ public:
     int getUserID();
     double getAmount();
     int getID();
-
-
-
-
-
 };
 #endif

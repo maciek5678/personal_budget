@@ -42,17 +42,12 @@ vector <Expence> ExpensesFile::uploadExpensesFromFile(int loggedUserID)
                 lastID=expence.getID();
                 xml.FindElem("date");
                 expence.setDate(DataManager::convertToVector((xml.GetData())));
-
                 xml.FindElem("describe");
                 expence.setDescribe(xml.GetData());
-
                 xml.FindElem("userID");
                 expence.setUserID(atoi(MCD_2PCSZ(xml.GetData())));
-
                 xml.FindElem("amount");
-
                 expence.setAmount(atof(MCD_2PCSZ(xml.GetData())));
-
                 if(expence.getUserID()==loggedUserID)
                 {
                     expences.push_back(expence);

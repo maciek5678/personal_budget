@@ -25,8 +25,6 @@ int DataManager:: insertData()
     string stringDate;
     while(true)
     {
-
-
         cout<<"Wprowadz date w formacie rrrr-mm-dd"<<endl;
         cin>>stringDate;
         if((stringDate.length()!=10)||((stringDate[0]<48)||(stringDate[0]>57))||((stringDate[1]<48)||(stringDate[1]>57))||
@@ -42,9 +40,7 @@ int DataManager:: insertData()
         }
 
         year=stoi(stringDate.substr(0,4));
-
         month=stoi(stringDate.substr(5,2));
-
         day=stoi(stringDate.substr(8,2));
         if(year<2000)
         {
@@ -173,8 +169,6 @@ int DataManager::selectedDate()
             cout<<"Niew³asciwy format daty!!!"<<endl;
             cout<<"Podaj date jescze raz"<<endl;
             continue;
-
-
         }
         year=stoi(stringDate.substr(0,4));
         month=stoi(stringDate.substr(5,2));

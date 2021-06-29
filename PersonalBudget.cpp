@@ -55,7 +55,6 @@ bool PersonalBudget::isUserLoggedIn()
 char PersonalBudget::chooseMainMenuOption()
 {
     char choice;
-
     system("cls");
     cout << "    >>> MENU  GLOWNE <<<" << endl;
     cout << "---------------------------" << endl;
@@ -65,7 +64,6 @@ char PersonalBudget::chooseMainMenuOption()
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
     choice = getChar();
-
     return choice;
 }
 char PersonalBudget::getChar()
@@ -76,7 +74,6 @@ char PersonalBudget::getChar()
     while (true)
     {
         getline(cin, input);
-
         if (input.length() == 1)
         {
             character = input[0];
@@ -89,7 +86,6 @@ char PersonalBudget::getChar()
 char PersonalBudget::chooseUserMenuOption()
 {
     char choice;
-
     system("cls");
     cout << " >>> MENU UZYTKOWNIKA <<<" << endl;
     cout << "---------------------------" << endl;
@@ -104,6 +100,5 @@ char PersonalBudget::chooseUserMenuOption()
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
     choice = getChar();
-
     return choice;
 }

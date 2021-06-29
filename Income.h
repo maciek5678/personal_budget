@@ -5,8 +5,5 @@
 
 using namespace std;
 class Income: public Finance
-{
-
-
-};
+{};
 #endif

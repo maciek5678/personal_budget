@@ -16,7 +16,6 @@ void UsersFile::addUser(User user)
     xml.AddElem("Surname", user.getSurname());
     xml.AddElem("Login", user.getLogin());
     xml.AddElem("Password", user.getPassword());
-
     xml.Save(FILE_NAME);
 }
 vector <User> UsersFile::uploadUsersFromFile()
@@ -33,21 +32,14 @@ vector <User> UsersFile::uploadUsersFromFile()
                 xml.IntoElem();
                 xml.FindElem("UserId");
                 user.setUserID(atoi(MCD_2PCSZ(xml.GetData())));
-
                 xml.FindElem("Name");
                 user.setName(xml.GetData());
-
                 xml.FindElem("Surname");
                 user.setSurname(xml.GetData());
-
                 xml.FindElem("Login");
-
                 user.setLogin(xml.GetData());
-
                 xml.FindElem("Password");
-
                 user.setPassword(xml.GetData());
-
                 users.push_back(user);
                 xml.OutOfElem();
             }
@@ -59,10 +51,6 @@ void UsersFile::changePassword(int loggedUserID, string password)
 {
     if(doesFileExist())
     {
-
-
-
-
         while ( xml.FindElem("Users") )
         {
             xml.IntoElem();

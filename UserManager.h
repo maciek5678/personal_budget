@@ -3,7 +3,6 @@
 #include "User.h"
 #include "UsersFile.h"
 using namespace std;
-
 class UserManager
 {
     int loggedUserID;

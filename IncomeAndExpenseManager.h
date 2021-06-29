@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
 #include "Income.h"
 #include "Expence.h"
 #include "IncomesFile.h"
@@ -20,13 +19,9 @@ public:
     IncomeAndExpenseManager(string incomesFileName,string expensesFileName,int logUserID)
         : incomesFile(incomesFileName),expensesFile(expensesFileName), loggedUserID(logUserID)
     {
-
         incomes=incomesFile.uploadIncomesFromFile(loggedUserID);
         expences=expensesFile.uploadExpensesFromFile(loggedUserID);
-
     }
-
-
     void addIncome();
     void addExpense();
     void sortVectorIncome();
@@ -43,5 +38,4 @@ public:
     double setAmount();
     void showIncomeDetails(Income income);
     void showExpenseDetails(Expence expense);
-
 };

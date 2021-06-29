@@ -11,9 +11,7 @@ void IncomeAndExpenseManager::addIncome()
 
     if(todayIncome())
     {
-
         date=DataManager::giveTodayData();
-
     }
     else
     {
@@ -23,8 +21,6 @@ void IncomeAndExpenseManager::addIncome()
     income.setUserID(loggedUserID);
     income.setDate(date);
     income.setDescribe(setDescribe());
-
-
     income.setAmount(setAmount());
     incomes.push_back(income);
     incomesFile.addIncome(income);
@@ -39,9 +35,6 @@ void IncomeAndExpenseManager::addExpense()
     if(todayExpense())
     {
         date=DataManager::giveTodayData();
-
-
-
     }
     else
     {
@@ -50,10 +43,7 @@ void IncomeAndExpenseManager::addExpense()
     expense.setID(expensesFile.getLastID()+1);
     expense.setUserID(loggedUserID);
     expense.setDate(date);
-
     expense.setDescribe(setDescribe());
-
-
     expense.setAmount(setAmount());
     expensesFile.addExpense(expense);
     expences.push_back(expense);
@@ -89,7 +79,6 @@ void IncomeAndExpenseManager::showCurrentMonthBalance()
         if(itr->getDate()/100==currentPeriod)
         {
             showIncomeDetails(*itr);
-
             balance+=itr->getAmount();
         }
 
@@ -102,7 +91,6 @@ void IncomeAndExpenseManager::showCurrentMonthBalance()
         {
             showExpenseDetails(*itr);
             balance-=itr->getAmount();
-
         }
 
     }
@@ -134,7 +122,6 @@ void IncomeAndExpenseManager::showPreviousMonthBalance()
             balance-=itr->getAmount();
             cout<<itr->getAmount()<<endl;
         }
-
     }
     cout<<endl<<"------------"<<endl;
     cout<<"Bilans: "<<balance<<endl;
@@ -145,18 +132,11 @@ void IncomeAndExpenseManager::showPreviousMonthBalance()
 void IncomeAndExpenseManager::showSelectedPeriodBalance()
 {
     int beginDate=0;
-
     int endDate=0;
     cout<<"Wprowadz date początkowa w formacie rrrr-mm-dd"<<endl;
     beginDate=DataManager::selectedDate();
-
-
     cout<<"Wprowadz date koncowa w formacie rrrr-mm-dd"<<endl;
     endDate=DataManager::selectedDate();
-
-
-
-
     double balance=0;
     sortVectorIncome();
     cout<<endl<<"Przychody: "<<endl;
@@ -164,8 +144,6 @@ void IncomeAndExpenseManager::showSelectedPeriodBalance()
     {
         if(beginDate<=itr->getDate() &&endDate>=itr->getDate())
         {
-
-
             showIncomeDetails(*itr);
             balance+=itr->getAmount();
         }
@@ -180,7 +158,6 @@ void IncomeAndExpenseManager::showSelectedPeriodBalance()
             showExpenseDetails(*itr);
             balance-=itr->getAmount();
         }
-
     }
     cout<<endl<<"------------"<<endl;
     cout<<"Bilans: "<<balance<<endl;
@@ -188,7 +165,6 @@ void IncomeAndExpenseManager::showSelectedPeriodBalance()
 }
 void IncomeAndExpenseManager::showAll()
 {
-
     for(vector <Expence> ::iterator itr=expences.begin(); itr!=expences.end(); itr++)
     {
         cout<<"Data: ";
@@ -199,7 +175,6 @@ void IncomeAndExpenseManager::showAll()
         cout<<itr->getUserID()<<endl;
         cout<<"Wartosc: ";
         cout<<itr->getAmount()<<endl;
-
     }
 }
 
@@ -214,10 +189,8 @@ void IncomeAndExpenseManager::uploadExpensesFromFile()
 bool IncomeAndExpenseManager::todayIncome()
 {
     cout<<"Czy przychod jest dzisiejszy? Jeœli tak wcisnij t oraz enter"<<endl;
-
     char sign=getchar();
     return(sign=='t');
-
 }
 string IncomeAndExpenseManager::setDescribe()
 {
@@ -262,7 +235,6 @@ void IncomeAndExpenseManager::showIncomeDetails(Income income)
 }
 void IncomeAndExpenseManager::showExpenseDetails(Expence expense)
 {
-
     cout<<endl;
     cout<<"ID: ";
     cout<<expense.getID()<<endl;

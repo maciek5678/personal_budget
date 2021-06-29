@@ -4,7 +4,5 @@
 #include "Finance.h"
 using namespace std;
 class Expence: public Finance
-{
-
-};
+{};
 #endif

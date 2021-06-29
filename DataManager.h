@@ -16,6 +16,5 @@ public:
     static int selectedDate();
     static string convertToFile(int date);
     static int convertToVector(string stringDate);
-
 };
 #endif
